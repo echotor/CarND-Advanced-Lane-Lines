@@ -10,7 +10,7 @@ The steps of this project are the following:
 
 * Compute the camera calibration matrix and distortion coefficients given a set of chessboard images.
 * Apply a distortion correction to raw images.
-* Use color transforms (the S-channel of HSV colour space) and gradients, to create a thresholded binary image.
+* Defined color transforms and gradients function, and find a combined method function to create a thresholded binary image.
 * Apply a perspective transform to rectify binary image ("birds-eye view").
 * Detect lane pixels and fit to find the lane boundary.
 * Determine the curvature of the lane and vehicle position with respect to center.
@@ -114,7 +114,7 @@ But I found the effect of this was not good. Like below:
 
 ![alt text][image8]
 
-So I change the combined function which in eleventh code cell of the IPython notebook located in "./SolutionImplement.ipynb". And I combined the sobel x、sobel y、magnitude of the gradient、direction and color transform together. The effect of this combined transform is more better than above. Like below:
+So I change the combined function which in eleventh code cell of the IPython notebook located in "./SolutionImplement.ipynb". And I combined the HLS L-channel and LAB B-channel color transform together. The effect of this combined transform is more better than above. Like below:
 
 ![alt text][image9]
 
@@ -140,3 +140,4 @@ Here's a [link to my video result](./output_images/project_video_output.mp4)
 
 * At firstly, I used a combination of color and sobel x gradient to generate a binary image, but find the effect on image is not good. So we should try one more combined transforms. I combined the sobel x、sobel y、magnitude of the gradient、direction and color transform together. The effect of this combined transform is more better than above.
 * When I apply in challenge video, the effect is not good. I think the reason is in combination function. For more better effect, we should find a better combination to improve the effect of detect line.
+* I find the effect of combined method is good on the normal video image. Maybe I should add other function together.
